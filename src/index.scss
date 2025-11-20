@@ -1,0 +1,303 @@
+$background:#2c3e50;
+$activeBackground: #34495e;
+$white: #fff;
+$border: #bdc3c7;
+$primaryColor: #3498db;
+$activeBorder: #2980b9;
+$grayText: #ecf0f1;
+$gray: #7f8c8d;
+$grayDark: #333;
+$danger: #e74c3c;
+$dangerDark: #c0392b;
+
+$font : "IBM Plex Sans KR", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+
+.ibm-plex-sans-kr-thin {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-extralight {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-light {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-regular {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-medium {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-semibold {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-kr-bold {
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+// layout
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  color: $white;
+  background-color: $background;
+}
+
+.layout {
+  position: relative;
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+}
+
+.button {
+  padding: 0.2rem 0.8rem;
+  border: none;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+}
+
+// footer 
+
+.footer {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  max-width: 600px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  color: $white;
+  background-color: transparent;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background-color: transparent;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 0;
+      border: none;
+      font-size: 15px;
+      background-color: transparent;
+      backdrop-filter: blur(10px) !important;
+    }
+  }
+}
+
+// home
+
+.home {
+  &__title {
+    padding: 16px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  &__tab {
+    padding: 16px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+
+    &--active {
+      font-weight: 700;
+      border-bottom: 2px solid $activeBorder;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $activeBackground;
+    }
+  }
+}
+
+.post-form {
+  &__textarea {
+    width: calc(100% - 32px);
+    min-height: 120px;
+    padding: 16px;
+    border: none;
+    border-bottom: 1px solid $border;
+    outline: none;
+    resize: none;
+    font-size: 20px;
+    font-family: $font;
+
+    &::placeholder {
+      font-size: 20px;
+      color: $grayText;
+      font-family: $font;
+    }
+  }
+
+  &__submit-area {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid $border;
+
+    .post-form__file {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 1rem;
+      cursor: pointer;
+
+      // &-icon {
+      //   color: $activeBorder;
+
+      //   &:hover {
+      //     color: $primaryColor;
+      //   }
+      // }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  &__submit-btn {
+    @extend .button;
+    padding: 0.5rem 1rem;
+    background-color: $primaryColor;
+  }
+}
+
+// post
+
+.post {
+  padding-bottom: 40px;
+
+  &__flex {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__email,
+  &__createdAt {
+    font-size: 12px;
+    color: $grayText;
+  }
+
+  &__box {
+    padding: 10px;
+    border-bottom: 1px solid $border;
+
+    a {
+      text-decoration: none;
+    }
+  
+    &__profile {
+      text-decoration: none;
+      padding: 0 10px;
+
+      &-img,
+      &-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+    }
+
+    &-content {
+      display: block;
+      font-weight: 500;
+      padding: 16px 4px;
+    }
+
+    &-footer {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 0 16px;
+      font-size: 14px;
+
+      button {
+        @extend .button;
+
+        &.post__delete {
+          background-color: $danger;
+
+          &:hover,
+          &:focus {
+            background-color: $dangerDark;
+          }
+        }
+
+        &.post__edit {
+          background-color: $gray;
+          
+          a {
+            background-color: transparent
+          }
+
+          &:hover,
+          &:focus {
+            background-color: $grayDark;
+          }
+        }
+
+        &.post__likes,
+        &.post__comments {
+          @extend .post__flex;
+
+          &:hover,
+          &:focus {
+            color: $gray;
+          }
+        }
+      }
+    }
+  }
+}
